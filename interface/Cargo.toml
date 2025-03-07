@@ -31,6 +31,9 @@ thiserror = "2.0"
 [lib]
 crate-type = ["cdylib", "lib"]
 
+[lints]
+workspace = true
+
 [dev-dependencies]
 solana-program = "2.2.1"
 tokio = { version = "1.42.0", features = ["full"] }

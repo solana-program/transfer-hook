@@ -33,6 +33,9 @@ spl-token-2022 = { version = "6.0.0", features = ["no-entrypoint"] }
 spl-token-client = "0.13.0"
 spl-transfer-hook-example = { version = "0.6.0", path = "../../program" }
 
+[lints]
+workspace = true
+
 [[bin]]
 name = "spl-transfer-hook"
 path = "src/main.rs"
