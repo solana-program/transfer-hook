@@ -559,7 +559,7 @@ mod test {
         test_validator_genesis.add_upgradeable_programs_with_path(&[UpgradeableProgramInfo {
             program_id,
             loader: bpf_loader_upgradeable::id(),
-            program_path: PathBuf::from("../../../target/deploy/spl_transfer_hook_example.so"),
+            program_path: PathBuf::from("../../target/deploy/spl_transfer_hook_example.so"),
             upgrade_authority: Pubkey::new_unique(),
         }]);
 
