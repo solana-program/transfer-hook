@@ -629,7 +629,7 @@ dependencies = [
  "bitflags 2.9.0",
  "cexpr",
  "clang-sys",
- "itertools 0.12.1",
+ "itertools 0.10.5",
  "lazy_static",
  "lazycell",
  "proc-macro2",
@@ -718,7 +718,7 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "115e54d64eb62cdebad391c19efc9dce4981c690c85a33a12199d99bb9546fee"
 dependencies = [
  "borsh-derive 0.10.4",
- "hashbrown 0.12.3",
+ "hashbrown 0.13.2",
 ]
 
 [[package]]
@@ -9107,7 +9107,7 @@ dependencies = [
  "solana-sdk",
  "solana-test-validator",
  "spl-tlv-account-resolution 0.10.0",
- "spl-token-2022 6.0.0",
+ "spl-token-2022 7.0.0",
  "spl-token-client",
  "spl-transfer-hook-example",
  "spl-transfer-hook-interface 0.9.0",
@@ -9125,7 +9125,7 @@ dependencies = [
  "solana-program-test",
  "solana-sdk",
  "spl-tlv-account-resolution 0.10.0",
- "spl-token-2022 6.0.0",
+ "spl-token-2022 7.0.0",
  "spl-transfer-hook-interface 0.9.0",
  "spl-type-length-value 0.8.0",
 ]
