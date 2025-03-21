@@ -8847,7 +8847,7 @@ dependencies = [
  "spl-discriminator",
  "spl-pod",
  "spl-program-error",
- "spl-type-length-value",
+ "spl-type-length-value 0.7.0",
  "thiserror 1.0.69",
 ]
 
@@ -8890,7 +8890,7 @@ dependencies = [
  "spl-token-group-interface",
  "spl-token-metadata-interface",
  "spl-transfer-hook-interface 0.9.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "spl-type-length-value",
+ "spl-type-length-value 0.7.0",
  "thiserror 1.0.69",
 ]
 
@@ -8918,7 +8918,7 @@ dependencies = [
  "spl-token-group-interface",
  "spl-token-metadata-interface",
  "spl-transfer-hook-interface 0.9.0 (registry+https://github.com/rust-lang/crates.io-index)",
- "spl-type-length-value",
+ "spl-type-length-value 0.7.0",
  "thiserror 2.0.12",
 ]
 
@@ -9037,7 +9037,7 @@ dependencies = [
  "solana-pubkey",
  "spl-discriminator",
  "spl-pod",
- "spl-type-length-value",
+ "spl-type-length-value 0.7.0",
  "thiserror 1.0.69",
 ]
 
@@ -9078,7 +9078,7 @@ dependencies = [
  "spl-tlv-account-resolution",
  "spl-token-2022 6.0.0",
  "spl-transfer-hook-interface 0.9.0",
- "spl-type-length-value",
+ "spl-type-length-value 0.8.0",
 ]
 
 [[package]]
@@ -9101,7 +9101,7 @@ dependencies = [
  "spl-pod",
  "spl-program-error",
  "spl-tlv-account-resolution",
- "spl-type-length-value",
+ "spl-type-length-value 0.8.0",
  "thiserror 2.0.12",
  "tokio",
 ]
@@ -9127,7 +9127,7 @@ dependencies = [
  "spl-pod",
  "spl-program-error",
  "spl-tlv-account-resolution",
- "spl-type-length-value",
+ "spl-type-length-value 0.7.0",
  "thiserror 1.0.69",
 ]
 
@@ -9147,6 +9147,24 @@ dependencies = [
  "spl-discriminator",
  "spl-pod",
  "thiserror 1.0.69",
+]
+
+[[package]]
+name = "spl-type-length-value"
+version = "0.8.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "d417eb548214fa822d93f84444024b4e57c13ed6719d4dcc68eec24fb481e9f5"
+dependencies = [
+ "bytemuck",
+ "num-derive",
+ "num-traits",
+ "solana-account-info",
+ "solana-decode-error",
+ "solana-msg",
+ "solana-program-error",
+ "spl-discriminator",
+ "spl-pod",
+ "thiserror 2.0.12",
 ]
 
 [[package]]
