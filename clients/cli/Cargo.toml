@@ -10,7 +10,7 @@ license = { workspace = true }
 edition = { workspace = true }
 
 [dependencies]
-clap = { version = "3", features = ["cargo"] }
+clap = { version = "4", features = ["cargo"] }
 futures-util = "0.3.31"
 solana-clap-v3-utils = "2.2.0"
 solana-cli-config = "2.2.0"
