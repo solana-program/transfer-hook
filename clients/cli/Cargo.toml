@@ -29,7 +29,7 @@ serde_yaml = "0.9.34"
 
 [dev-dependencies]
 solana-test-validator = "2.2.0"
-spl-token-2022 = { version = "8.0.0", features = ["no-entrypoint"] }
+spl-token-2022 = { version = "8.0.1", features = ["no-entrypoint"] }
 spl-token-client = "0.14.0"
 spl-transfer-hook-example = { version = "0.6.0", path = "../../program" }
 
