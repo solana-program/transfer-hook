@@ -19,7 +19,7 @@ solana-cpi = "2.2.1"
 solana-decode-error = "2.2.1"
 solana-instruction = { version = "2.2.1", features = ["std"] }
 solana-msg = "2.2.1"
-solana-program-error = "2.2.1"
+solana-program-error = "2.2.2"
 solana-pubkey = { version = "2.2.1", features = ["curve25519"] }
 spl-discriminator = "0.4.0"
 spl-program-error = "0.7.0"
