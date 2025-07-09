@@ -86,16 +86,19 @@ jobs:
           cargo-cache-fallback-key: cargo-publish-semver
 
       - name: Install cargo-semver-checks
+        if: ${{ inputs.package_path != "clients/cli" }}
         uses: taiki-e/install-action@v2
         with:
           tool: cargo-semver-checks,cargo-release
 
       - name: Set Git Author (required for cargo-release)
+        if: ${{ inputs.package_path != "clients/cli" }}
         run: |
           git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --global user.name "github-actions[bot]"
 
       - name: Set Version
+        if: ${{ inputs.package_path != "clients/cli" }}
         run: |
           if [ "${{ inputs.level }}" == "version" ]; then
             LEVEL=${{ inputs.version }}
@@ -105,6 +108,7 @@ jobs:
           cargo release $LEVEL --manifest-path "${{ inputs.package_path }}/Cargo.toml" --no-tag --no-publish --no-push --no-confirm --execute
 
       - name: Check semver
+        if: ${{ inputs.package_path != "clients/cli" }}
         run: pnpm rust:semver --manifest-path "${{ inputs.package_path }}/Cargo.toml"
 
   publish:
