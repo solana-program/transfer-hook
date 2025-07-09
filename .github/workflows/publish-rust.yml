@@ -77,9 +77,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Git checkout
+        if: ${{ inputs.package_path != "clients/cli" }}
         uses: actions/checkout@v4
 
       - name: Setup Environment
+        if: ${{ inputs.package_path != "clients/cli" }}
         uses: ./.github/actions/setup
         with:
           cargo-cache-key: cargo-publish-semver-${{ inputs.package_path }}
