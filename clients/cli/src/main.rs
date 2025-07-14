@@ -18,9 +18,9 @@ use {
         instruction::Instruction,
         pubkey::Pubkey,
         signature::{Signature, Signer},
-        system_instruction, system_program,
         transaction::Transaction,
     },
+    solana_system_interface::{instruction as system_instruction, program as system_program},
     spl_tlv_account_resolution::{account::ExtraAccountMeta, state::ExtraAccountMetaList},
     spl_transfer_hook_interface::{
         get_extra_account_metas_address,
@@ -534,9 +534,10 @@ mod test {
     use {
         super::*,
         solana_sdk::{
-            account::Account, bpf_loader_upgradeable, instruction::AccountMeta,
-            program_option::COption, signer::keypair::Keypair,
+            account::Account, instruction::AccountMeta, program_option::COption,
+            signer::keypair::Keypair,
         },
+        solana_sdk_ids::bpf_loader_upgradeable,
         solana_test_validator::{TestValidator, TestValidatorGenesis, UpgradeableProgramInfo},
         spl_token_2022::{
             extension::{ExtensionType, StateWithExtensionsMut},

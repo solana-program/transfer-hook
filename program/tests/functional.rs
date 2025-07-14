@@ -14,9 +14,10 @@ use {
         pubkey::Pubkey,
         signature::Signer,
         signer::keypair::Keypair,
-        system_instruction, sysvar,
+        sysvar,
         transaction::{Transaction, TransactionError},
     },
+    solana_system_interface::instruction as system_instruction,
     spl_tlv_account_resolution::{
         account::ExtraAccountMeta, error::AccountResolutionError, seeds::Seed,
         state::ExtraAccountMetaList,
