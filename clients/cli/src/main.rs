@@ -590,7 +590,7 @@ mod test {
         test_validator_genesis.start_async().await
     }
 
-    #[tokio::test]
+    #[tokio::test(flavor = "multi_thread", worker_threads = 2)]
     async fn test_create() {
         let program_id = Pubkey::new_unique();
 
