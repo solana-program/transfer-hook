@@ -8,8 +8,8 @@ use {
         program::invoke_signed,
         program_error::ProgramError,
         pubkey::Pubkey,
-        system_instruction,
     },
+    solana_system_interface::instruction as system_instruction,
     spl_tlv_account_resolution::{account::ExtraAccountMeta, state::ExtraAccountMetaList},
     spl_token_2022::{
         extension::{

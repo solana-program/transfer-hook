@@ -139,7 +139,7 @@ mod tests {
     use {
         super::*,
         crate::instruction::ExecuteInstruction,
-        solana_program::{bpf_loader_upgradeable, system_program},
+        solana_sdk_ids::{bpf_loader_upgradeable, system_program},
         spl_tlv_account_resolution::{
             account::ExtraAccountMeta, error::AccountResolutionError, seeds::Seed,
         },

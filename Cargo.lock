@@ -9741,6 +9741,7 @@ dependencies = [
  "solana-program",
  "solana-program-error",
  "solana-pubkey",
+ "solana-sdk-ids",
  "spl-discriminator",
  "spl-pod",
  "spl-program-error",
