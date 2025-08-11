@@ -19,7 +19,7 @@ solana-logger = "3.0.0"
 solana-remote-wallet = "2.3.4"
 solana-sdk = "2.2.1"
 solana-sdk-ids = "2.2.1"
-solana-system-interface = "1"
+solana-system-interface = "2"
 spl-tlv-account-resolution = { version = "0.10.0", features = ["serde-traits"] }
 spl-transfer-hook-interface = { version = "0.10.0", path = "../../interface" }
 strum = "0.27"
