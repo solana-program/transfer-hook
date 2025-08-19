@@ -21,7 +21,7 @@ solana-instruction = { version = "2.2.1", features = ["std"] }
 solana-msg = "3.0.0"
 solana-program-error = "2.2.1"
 solana-pubkey = { version = "2.2.1", features = ["curve25519"] }
-solana-sdk-ids = "2.2.1"
+solana-sdk-ids = "3.0.0"
 spl-discriminator = "0.4.0"
 spl-program-error = "0.8.0"
 spl-tlv-account-resolution = "0.10.0"
