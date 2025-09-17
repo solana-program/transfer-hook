@@ -1,9 +1,6 @@
 //! Error types
 
-use {
-    solana_decode_error::DecodeError,
-    solana_program_error::{ProgramError, ToStr},
-};
+use solana_program_error::{ProgramError, ToStr};
 
 /// Errors that may be returned by the interface.
 #[repr(u32)]
@@ -26,12 +23,6 @@ pub enum TransferHookError {
 impl From<TransferHookError> for ProgramError {
     fn from(e: TransferHookError) -> Self {
         ProgramError::Custom(e as u32)
-    }
-}
-
-impl<T> DecodeError<T> for TransferHookError {
-    fn type_of() -> &'static str {
-        "TransferHookError"
     }
 }
 

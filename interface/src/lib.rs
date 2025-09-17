@@ -16,8 +16,8 @@ pub mod onchain;
 // version
 use solana_pubkey::Pubkey;
 pub use {
-    solana_account_info, solana_cpi, solana_decode_error, solana_instruction, solana_msg,
-    solana_program_error, solana_pubkey,
+    solana_account_info, solana_cpi, solana_instruction, solana_msg, solana_program_error,
+    solana_pubkey,
 };
 
 /// Namespace for all programs implementing transfer-hook

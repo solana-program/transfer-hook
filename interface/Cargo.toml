@@ -16,7 +16,6 @@ num-derive = "0.4"
 num-traits = "0.2"
 solana-account-info = "3.0.0"
 solana-cpi = "3.0.0"
-solana-decode-error = "2.3.0"
 solana-instruction = { version = "3.0.0", features = ["std"] }
 solana-msg = "3.0.0"
 solana-program-error = "3.0.0"
