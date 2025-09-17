@@ -31,6 +31,17 @@ const advisories = [
   // need to solve this dependency tree:
   // jsonrpc-core-client v18.0.0 -> jsonrpc-client-transports v18.0.0 -> url v1.7.2 -> idna v0.1.5
   'RUSTSEC-2024-0421',
+
+  // Crate:     tracing-subscriber
+  // Version:   0.3.19
+  // Title:     Logging user input may result in poisoning logs with ANSI escape sequences
+  // Date:      2025-08-29
+  // ID:        RUSTSEC-2025-0055
+  // URL:       https://rustsec.org/advisories/RUSTSEC-2025-0055
+  // Solution:  Upgrade to >=0.3.20
+  // 
+  // Pulled in by solana-program-test; remove once program tests are upgraded
+  'RUSTSEC-2025-0055',
 ];
 const ignores = []
 advisories.forEach(x => {
