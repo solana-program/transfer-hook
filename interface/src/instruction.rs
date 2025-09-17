@@ -5,7 +5,7 @@ use {
     solana_program_error::ProgramError,
     solana_pubkey::Pubkey,
     spl_discriminator::{ArrayDiscriminator, SplDiscriminate},
-    spl_pod::{bytemuck::pod_slice_to_bytes, slice::PodSlice},
+    spl_pod::{bytemuck::pod_slice_to_bytes, list::ListView},
     spl_tlv_account_resolution::account::ExtraAccountMeta,
     std::convert::TryInto,
 };
@@ -96,15 +96,15 @@ impl TransferHookInstruction {
                 Self::Execute { amount }
             }
             InitializeExtraAccountMetaListInstruction::SPL_DISCRIMINATOR_SLICE => {
-                let pod_slice = PodSlice::<ExtraAccountMeta>::unpack(rest)?;
-                let extra_account_metas = pod_slice.data().to_vec();
+                let list_view = ListView::<ExtraAccountMeta>::unpack(rest)?;
+                let extra_account_metas = list_view.to_vec();
                 Self::InitializeExtraAccountMetaList {
                     extra_account_metas,
                 }
             }
             UpdateExtraAccountMetaListInstruction::SPL_DISCRIMINATOR_SLICE => {
-                let pod_slice = PodSlice::<ExtraAccountMeta>::unpack(rest)?;
-                let extra_account_metas = pod_slice.data().to_vec();
+                let list_view = ListView::<ExtraAccountMeta>::unpack(rest)?;
+                let extra_account_metas = list_view.to_vec();
                 Self::UpdateExtraAccountMetaList {
                     extra_account_metas,
                 }
@@ -256,7 +256,7 @@ mod test {
 
     #[test]
     fn system_program_id() {
-        assert_eq!(solana_program::system_program::id(), SYSTEM_PROGRAM_ID);
+        assert_eq!(solana_system_interface::program::id(), SYSTEM_PROGRAM_ID);
     }
 
     #[test]

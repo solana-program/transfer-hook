@@ -201,7 +201,6 @@ mod tests {
             &mut source_data,
             &spl_token_2022_program_id,
             false,
-            0,
         );
 
         let mint_pubkey = Pubkey::new_unique();
@@ -215,7 +214,6 @@ mod tests {
             &mut mint_data,
             &spl_token_2022_program_id,
             false,
-            0,
         );
 
         let destination_pubkey = Pubkey::new_unique();
@@ -229,7 +227,6 @@ mod tests {
             &mut destination_data,
             &spl_token_2022_program_id,
             false,
-            0,
         );
 
         let authority_pubkey = Pubkey::new_unique();
@@ -243,7 +240,6 @@ mod tests {
             &mut authority_data,
             &system_program::ID,
             false,
-            0,
         );
 
         let validate_state_pubkey =
@@ -260,7 +256,6 @@ mod tests {
             &mut extra_meta_1_data,
             &system_program::ID,
             false,
-            0,
         );
 
         let extra_meta_2_pubkey = EXTRA_META_2;
@@ -274,7 +269,6 @@ mod tests {
             &mut extra_meta_2_data,
             &system_program::ID,
             false,
-            0,
         );
 
         let extra_meta_3_pubkey = Pubkey::find_program_address(
@@ -296,7 +290,6 @@ mod tests {
             &mut extra_meta_3_data,
             &transfer_hook_program_id,
             false,
-            0,
         );
 
         let extra_meta_4_pubkey = Pubkey::find_program_address(
@@ -319,7 +312,6 @@ mod tests {
             &mut extra_meta_4_data,
             &transfer_hook_program_id,
             false,
-            0,
         );
 
         let mut validate_state_data = setup_validation_data();
@@ -332,7 +324,6 @@ mod tests {
             &mut validate_state_data,
             &transfer_hook_program_id,
             false,
-            0,
         );
 
         let mut transfer_hook_program_data = vec![]; // Mock
@@ -345,7 +336,6 @@ mod tests {
             &mut transfer_hook_program_data,
             &bpf_loader_upgradeable::ID,
             false,
-            0,
         );
 
         let mut cpi_instruction = Instruction::new_with_bytes(

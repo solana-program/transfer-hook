@@ -21,7 +21,7 @@ solana-sdk = "2.2.1"
 solana-sdk-ids = "2.2.1"
 solana-system-interface = "1"
 spl-tlv-account-resolution = { version = "0.10.0", features = ["serde-traits"] }
-spl-transfer-hook-interface = { version = "0.10.0", path = "../../interface" }
+spl-transfer-hook-interface = "0.10.0"
 strum = "0.27"
 strum_macros = "0.27"
 tokio = { version = "1", features = ["full"] }
@@ -33,7 +33,7 @@ serde_yaml = "0.9.34"
 solana-test-validator = "2.3.4"
 spl-token-2022 = { version = "9.0.0", features = ["no-entrypoint"] }
 spl-token-client = "0.16.1"
-spl-transfer-hook-example = { version = "0.6.0", path = "../../program" }
+spl-transfer-hook-example = "0.6.0"
 
 [lints]
 workspace = true
