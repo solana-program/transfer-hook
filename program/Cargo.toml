@@ -12,7 +12,6 @@ edition = { workspace = true }
 [features]
 default = ["forbid-additional-mints"]
 no-entrypoint = []
-test-sbf = []
 forbid-additional-mints = []
 
 [dependencies]
