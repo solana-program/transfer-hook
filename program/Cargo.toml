@@ -29,7 +29,7 @@ solana-sdk = "2.2.1"
 solana-system-interface = "1"
 
 [lib]
-crate-type = ["cdylib", "lib"]
+crate-type = ["cdylib"]
 
 [lints]
 workspace = true
