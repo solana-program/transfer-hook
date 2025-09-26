@@ -51,6 +51,9 @@ pub fn invoke_execute<'a>(
         )?;
     }
 
+    // Demote all signers
+    cpi_instruction.accounts.iter_mut().for_each(|a| a.is_signer = false);
+
     invoke(&cpi_instruction, &cpi_account_infos)
 }
 
