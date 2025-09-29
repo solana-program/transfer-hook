@@ -52,7 +52,10 @@ pub fn invoke_execute<'a>(
     }
 
     // Demote all signers
-    cpi_instruction.accounts.iter_mut().for_each(|a| a.is_signer = false);
+    cpi_instruction
+        .accounts
+        .iter_mut()
+        .for_each(|a| a.is_signer = false);
 
     invoke(&cpi_instruction, &cpi_account_infos)
 }
@@ -524,8 +527,13 @@ mod tests {
             &Pubkey::new_unique(),
             100,
         );
-        instruction.accounts.push(AccountMeta::new(Pubkey::new_unique(), true));
-        instruction.accounts.iter_mut().for_each(|a| a.is_signer = false);
+        instruction
+            .accounts
+            .push(AccountMeta::new(Pubkey::new_unique(), true));
+        instruction
+            .accounts
+            .iter_mut()
+            .for_each(|a| a.is_signer = false);
         assert!(instruction.accounts.iter().all(|a| !a.is_signer));
     }
 }
