@@ -511,4 +511,21 @@ mod tests {
             assert_eq!(a.is_writable, b.is_writable);
         }
     }
+
+    #[test]
+    fn test_signer_demotion_sanity() {
+        // This test doesn't actually run any functions in this file, but checks
+        // that demotion works as expected.
+        let mut instruction = instruction::execute(
+            &Pubkey::new_unique(),
+            &Pubkey::new_unique(),
+            &Pubkey::new_unique(),
+            &Pubkey::new_unique(),
+            &Pubkey::new_unique(),
+            100,
+        );
+        instruction.accounts.push(AccountMeta::new(Pubkey::new_unique(), true));
+        instruction.accounts.iter_mut().for_each(|a| a.is_signer = false);
+        assert!(instruction.accounts.iter().all(|a| !a.is_signer));
+    }
 }
