@@ -30,7 +30,7 @@ spl-pod = "0.7.1"
 thiserror = "2.0"
 
 [lib]
-crate-type = ["cdylib", "lib"]
+crate-type = ["lib"]
 
 [lints]
 workspace = true
