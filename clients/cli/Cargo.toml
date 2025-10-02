@@ -14,7 +14,7 @@ clap = { version = "3", features = ["cargo"] }
 futures-util = "0.3.31"
 solana-clap-v3-utils = "2.3.4"
 solana-cli-config = "2.3.4"
-solana-client = "2.3.4"
+solana-client = "3.0.5"
 solana-logger = "3.0.0"
 solana-remote-wallet = "2.3.4"
 solana-sdk = "2.2.1"
