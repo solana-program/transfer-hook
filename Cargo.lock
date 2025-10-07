@@ -9996,7 +9996,7 @@ dependencies = [
  "spl-token-confidential-transfer-proof-generation",
  "spl-token-group-interface",
  "spl-token-metadata-interface",
- "spl-transfer-hook-interface 0.10.0",
+ "spl-transfer-hook-interface 0.10.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "spl-type-length-value 0.8.0",
  "thiserror 2.0.16",
 ]
@@ -10040,7 +10040,7 @@ dependencies = [
  "spl-token-confidential-transfer-proof-generation",
  "spl-token-group-interface",
  "spl-token-metadata-interface",
- "spl-transfer-hook-interface 0.10.0",
+ "spl-transfer-hook-interface 0.10.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "spl-type-length-value 0.8.0",
  "thiserror 2.0.16",
 ]
@@ -10072,7 +10072,7 @@ dependencies = [
  "spl-token-confidential-transfer-proof-generation",
  "spl-token-group-interface",
  "spl-token-metadata-interface",
- "spl-transfer-hook-interface 0.10.0",
+ "spl-transfer-hook-interface 0.10.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "thiserror 2.0.16",
 ]
 
@@ -10201,7 +10201,7 @@ dependencies = [
  "spl-token-2022 9.0.0",
  "spl-token-client",
  "spl-transfer-hook-example",
- "spl-transfer-hook-interface 0.10.0",
+ "spl-transfer-hook-interface 0.10.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "strum 0.27.2",
  "strum_macros 0.27.2",
  "tokio",
@@ -10218,8 +10218,34 @@ dependencies = [
  "solana-system-interface 1.0.0",
  "spl-tlv-account-resolution 0.10.0",
  "spl-token-2022 9.0.0",
- "spl-transfer-hook-interface 0.10.0",
+ "spl-transfer-hook-interface 0.10.0 (registry+https://github.com/rust-lang/crates.io-index)",
  "spl-type-length-value 0.9.0",
+]
+
+[[package]]
+name = "spl-transfer-hook-interface"
+version = "0.10.0"
+dependencies = [
+ "arrayref",
+ "bytemuck",
+ "num-derive",
+ "num-traits",
+ "solana-account-info 3.0.0",
+ "solana-cpi 3.0.0",
+ "solana-instruction 3.0.0",
+ "solana-msg 3.0.0",
+ "solana-program",
+ "solana-program-error 3.0.0",
+ "solana-pubkey 3.0.0",
+ "solana-sdk-ids 3.0.0",
+ "solana-system-interface 2.0.0",
+ "spl-discriminator 0.5.1",
+ "spl-pod 0.7.1",
+ "spl-program-error 0.8.0",
+ "spl-tlv-account-resolution 0.11.0",
+ "spl-type-length-value 0.9.0",
+ "thiserror 2.0.16",
+ "tokio",
 ]
 
 [[package]]
@@ -10245,32 +10271,6 @@ dependencies = [
  "spl-tlv-account-resolution 0.10.0",
  "spl-type-length-value 0.8.0",
  "thiserror 2.0.16",
-]
-
-[[package]]
-name = "spl-transfer-hook-interface"
-version = "1.0.0"
-dependencies = [
- "arrayref",
- "bytemuck",
- "num-derive",
- "num-traits",
- "solana-account-info 3.0.0",
- "solana-cpi 3.0.0",
- "solana-instruction 3.0.0",
- "solana-msg 3.0.0",
- "solana-program",
- "solana-program-error 3.0.0",
- "solana-pubkey 3.0.0",
- "solana-sdk-ids 3.0.0",
- "solana-system-interface 2.0.0",
- "spl-discriminator 0.5.1",
- "spl-pod 0.7.1",
- "spl-program-error 0.8.0",
- "spl-tlv-account-resolution 0.11.0",
- "spl-type-length-value 0.9.0",
- "thiserror 2.0.16",
- "tokio",
 ]
 
 [[package]]
