@@ -22,7 +22,7 @@ use {
         account::ExtraAccountMeta, error::AccountResolutionError, seeds::Seed,
         state::ExtraAccountMetaList,
     },
-    spl_token_2022::{
+    spl_token_2022_interface::{
         extension::{
             transfer_hook::TransferHookAccount, BaseStateWithExtensionsMut, ExtensionType,
             StateWithExtensionsMut,
@@ -47,13 +47,8 @@ fn setup(program_id: &Pubkey) -> ProgramTest {
         processor!(spl_transfer_hook_example::processor::process),
     );
 
-    program_test.prefer_bpf(false); // simplicity in the build
-
-    program_test.add_program(
-        "spl_token_2022",
-        spl_token_2022::id(),
-        processor!(spl_token_2022::processor::Processor::process),
-    );
+    program_test.add_program("spl_token_2022", spl_token_2022_interface::id(), None);
+    program_test.prefer_bpf(false);
 
     program_test
 }
@@ -141,7 +136,7 @@ async fn success_execute() {
     let program_id = Pubkey::new_unique();
     let mut program_test = setup(&program_id);
 
-    let token_program_id = spl_token_2022::id();
+    let token_program_id = spl_token_2022_interface::id();
     let wallet = Keypair::new();
     let mint_address = spl_transfer_hook_example::mint::id();
     let mint_authority = Keypair::new();
@@ -438,7 +433,7 @@ async fn fail_incorrect_derivation() {
     let program_id = Pubkey::new_unique();
     let mut program_test = setup(&program_id);
 
-    let token_program_id = spl_token_2022::id();
+    let token_program_id = spl_token_2022_interface::id();
     let wallet = Keypair::new();
     let mint_address = spl_transfer_hook_example::mint::id();
     let mint_authority = Keypair::new();
@@ -501,7 +496,7 @@ async fn fail_incorrect_mint() {
     let program_id = Pubkey::new_unique();
     let mut program_test = setup(&program_id);
 
-    let token_program_id = spl_token_2022::id();
+    let token_program_id = spl_token_2022_interface::id();
     let wallet = Keypair::new();
     // wrong mint, only `spl_transfer_hook_example::mint::id()` allowed
     let mint_address = Pubkey::new_unique();
@@ -592,7 +587,7 @@ async fn success_on_chain_invoke() {
         processor!(process_instruction),
     );
 
-    let token_program_id = spl_token_2022::id();
+    let token_program_id = spl_token_2022_interface::id();
     let wallet = Keypair::new();
     let mint_address = spl_transfer_hook_example::mint::id();
     let mint_authority = Keypair::new();
@@ -735,7 +730,7 @@ async fn fail_without_transferring_flag() {
     let program_id = Pubkey::new_unique();
     let mut program_test = setup(&program_id);
 
-    let token_program_id = spl_token_2022::id();
+    let token_program_id = spl_token_2022_interface::id();
     let wallet = Keypair::new();
     let mint_address = spl_transfer_hook_example::mint::id();
     let mint_authority = Keypair::new();
@@ -829,7 +824,7 @@ async fn success_on_chain_invoke_with_updated_extra_account_metas() {
         processor!(process_instruction),
     );
 
-    let token_program_id = spl_token_2022::id();
+    let token_program_id = spl_token_2022_interface::id();
     let wallet = Keypair::new();
     let mint_address = spl_transfer_hook_example::mint::id();
     let mint_authority = Keypair::new();
@@ -1032,7 +1027,7 @@ async fn success_execute_with_updated_extra_account_metas() {
     let program_id = Pubkey::new_unique();
     let mut program_test = setup(&program_id);
 
-    let token_program_id = spl_token_2022::id();
+    let token_program_id = spl_token_2022_interface::id();
     let wallet = Keypair::new();
     let mint_address = spl_transfer_hook_example::mint::id();
     let mint_authority = Keypair::new();

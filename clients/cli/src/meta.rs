@@ -1,6 +1,6 @@
 use {
     serde::{Deserialize, Serialize},
-    solana_sdk::pubkey::Pubkey,
+    solana_pubkey::Pubkey,
     spl_tlv_account_resolution::{account::ExtraAccountMeta, seeds::Seed},
     std::{path::Path, str::FromStr},
     strum_macros::{EnumString, IntoStaticStr},
