@@ -9669,7 +9669,7 @@ dependencies = [
  "spl-token-confidential-transfer-proof-generation",
  "spl-token-group-interface",
  "spl-token-metadata-interface",
- "spl-transfer-hook-interface 2.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "spl-transfer-hook-interface 2.0.0",
  "thiserror 2.0.16",
 ]
 
@@ -9739,7 +9739,7 @@ dependencies = [
  "spl-token-group-interface",
  "spl-token-interface",
  "spl-token-metadata-interface",
- "spl-transfer-hook-interface 2.0.0 (registry+https://github.com/rust-lang/crates.io-index)",
+ "spl-transfer-hook-interface 2.0.0",
  "thiserror 2.0.16",
  "tokio",
 ]
@@ -9874,7 +9874,7 @@ dependencies = [
  "spl-token-2022-interface",
  "spl-token-client",
  "spl-transfer-hook-example",
- "spl-transfer-hook-interface 2.0.0",
+ "spl-transfer-hook-interface 2.1.0",
  "strum 0.27.2",
  "strum_macros 0.27.2",
  "tokio",
@@ -9896,34 +9896,8 @@ dependencies = [
  "solana-system-interface",
  "spl-tlv-account-resolution",
  "spl-token-2022-interface",
- "spl-transfer-hook-interface 2.0.0",
+ "spl-transfer-hook-interface 2.1.0",
  "spl-type-length-value",
-]
-
-[[package]]
-name = "spl-transfer-hook-interface"
-version = "2.0.0"
-dependencies = [
- "arrayref",
- "bytemuck",
- "num-derive",
- "num-traits",
- "solana-account-info",
- "solana-cpi",
- "solana-instruction",
- "solana-msg",
- "solana-program-error",
- "solana-pubkey",
- "solana-sdk-ids",
- "solana-sha256-hasher",
- "solana-system-interface",
- "spl-discriminator",
- "spl-pod",
- "spl-program-error",
- "spl-tlv-account-resolution",
- "spl-type-length-value",
- "thiserror 2.0.16",
- "tokio",
 ]
 
 [[package]]
@@ -9950,6 +9924,32 @@ dependencies = [
  "spl-tlv-account-resolution",
  "spl-type-length-value",
  "thiserror 2.0.16",
+]
+
+[[package]]
+name = "spl-transfer-hook-interface"
+version = "2.1.0"
+dependencies = [
+ "arrayref",
+ "bytemuck",
+ "num-derive",
+ "num-traits",
+ "solana-account-info",
+ "solana-cpi",
+ "solana-instruction",
+ "solana-msg",
+ "solana-program-error",
+ "solana-pubkey",
+ "solana-sdk-ids",
+ "solana-sha256-hasher",
+ "solana-system-interface",
+ "spl-discriminator",
+ "spl-pod",
+ "spl-program-error",
+ "spl-tlv-account-resolution",
+ "spl-type-length-value",
+ "thiserror 2.0.16",
+ "tokio",
 ]
 
 [[package]]
