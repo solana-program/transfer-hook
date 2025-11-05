@@ -252,7 +252,9 @@ pub fn update_extra_account_meta_list(
 
 #[cfg(test)]
 mod test {
-    use {super::*, crate::NAMESPACE, solana_program::hash, spl_pod::bytemuck::pod_from_bytes};
+    use {
+        super::*, crate::NAMESPACE, solana_sha256_hasher::hashv, spl_pod::bytemuck::pod_from_bytes,
+    };
 
     #[test]
     fn system_program_id() {
@@ -266,7 +268,7 @@ mod test {
         let packed = check.pack();
         // Please use ExecuteInstruction::SPL_DISCRIMINATOR in your program, the
         // following is just for test purposes
-        let preimage = hash::hashv(&[format!("{NAMESPACE}:execute").as_bytes()]);
+        let preimage = hashv(&[format!("{NAMESPACE}:execute").as_bytes()]);
         let discriminator = &preimage.as_ref()[..ArrayDiscriminator::LENGTH];
         let mut expect = vec![];
         expect.extend_from_slice(discriminator.as_ref());
@@ -296,8 +298,7 @@ mod test {
         let packed = check.pack();
         // Please use INITIALIZE_EXTRA_ACCOUNT_METAS_DISCRIMINATOR in your program,
         // the following is just for test purposes
-        let preimage =
-            hash::hashv(&[format!("{NAMESPACE}:initialize-extra-account-metas").as_bytes()]);
+        let preimage = hashv(&[format!("{NAMESPACE}:initialize-extra-account-metas").as_bytes()]);
         let discriminator = &preimage.as_ref()[..ArrayDiscriminator::LENGTH];
         let mut expect = vec![];
         expect.extend_from_slice(discriminator.as_ref());

@@ -12,15 +12,14 @@ use {
         keypair::signer_from_path,
     },
     solana_client::nonblocking::rpc_client::RpcClient,
+    solana_commitment_config::CommitmentConfig,
+    solana_instruction::Instruction,
+    solana_pubkey::Pubkey,
     solana_remote_wallet::remote_wallet::RemoteWalletManager,
-    solana_sdk::{
-        commitment_config::CommitmentConfig,
-        instruction::Instruction,
-        pubkey::Pubkey,
-        signature::{Signature, Signer},
-        transaction::Transaction,
-    },
+    solana_signature::Signature,
+    solana_signer::Signer,
     solana_system_interface::{instruction as system_instruction, program as system_program},
+    solana_transaction::Transaction,
     spl_tlv_account_resolution::{account::ExtraAccountMeta, state::ExtraAccountMetaList},
     spl_transfer_hook_interface::{
         get_extra_account_metas_address,
@@ -533,13 +532,13 @@ extraMetas:
 mod test {
     use {
         super::*,
-        solana_sdk::{
-            account::Account, instruction::AccountMeta, program_option::COption,
-            signer::keypair::Keypair,
-        },
+        solana_account::Account,
+        solana_instruction::AccountMeta,
+        solana_keypair::Keypair,
+        solana_program_option::COption,
         solana_sdk_ids::bpf_loader_upgradeable,
         solana_test_validator::{TestValidator, TestValidatorGenesis, UpgradeableProgramInfo},
-        spl_token_2022::{
+        spl_token_2022_interface::{
             extension::{ExtensionType, StateWithExtensionsMut},
             state::Mint,
         },
@@ -582,7 +581,7 @@ mod test {
             Account {
                 lamports: 1_000_000_000,
                 data: mint_data,
-                owner: spl_token_2022::id(),
+                owner: spl_token_2022_interface::id(),
                 ..Account::default()
             }
             .into(),
@@ -607,7 +606,7 @@ mod test {
 
         let token = Token::new(
             client.clone(),
-            &spl_token_2022::id(),
+            &spl_token_2022_interface::id(),
             &spl_transfer_hook_example::mint::id(),
             Some(decimals),
             payer.clone(),

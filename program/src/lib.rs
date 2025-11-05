@@ -13,10 +13,6 @@ pub mod state;
 #[cfg(not(feature = "no-entrypoint"))]
 mod entrypoint;
 
-// Export current sdk types for downstream users building with a different sdk
-// version
-pub use solana_program;
-
 /// Place the mint id that you want to target with your transfer hook program.
 /// Any other mint will fail to initialize, protecting the transfer hook program
 /// from rogue mints trying to get access to accounts.
@@ -26,5 +22,5 @@ pub use solana_program;
 /// unsafe, this simple example implementation only allows for one mint.
 #[cfg(feature = "forbid-additional-mints")]
 pub mod mint {
-    solana_program::declare_id!("Mint111111111111111111111111111111111111111");
+    solana_pubkey::declare_id!("Mint111111111111111111111111111111111111111");
 }

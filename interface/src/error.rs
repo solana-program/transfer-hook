@@ -40,3 +40,10 @@ impl ToStr for TransferHookError {
         }
     }
 }
+
+impl TryFrom<u32> for TransferHookError {
+    type Error = ProgramError;
+    fn try_from(code: u32) -> Result<Self, Self::Error> {
+        num_traits::FromPrimitive::from_u32(code).ok_or(ProgramError::InvalidArgument)
+    }
+}

@@ -1,17 +1,14 @@
 //! Program state processor
 
 use {
-    solana_program::{
-        account_info::{next_account_info, AccountInfo},
-        entrypoint::ProgramResult,
-        msg,
-        program::invoke_signed,
-        program_error::ProgramError,
-        pubkey::Pubkey,
-    },
+    solana_account_info::{next_account_info, AccountInfo},
+    solana_cpi::invoke_signed,
+    solana_msg::msg,
+    solana_program_error::{ProgramError, ProgramResult},
+    solana_pubkey::Pubkey,
     solana_system_interface::instruction as system_instruction,
     spl_tlv_account_resolution::{account::ExtraAccountMeta, state::ExtraAccountMetaList},
-    spl_token_2022::{
+    spl_token_2022_interface::{
         extension::{
             transfer_hook::TransferHookAccount, BaseStateWithExtensions, StateWithExtensions,
         },
