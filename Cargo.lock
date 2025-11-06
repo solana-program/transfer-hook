@@ -9613,9 +9613,9 @@ dependencies = [
 
 [[package]]
 name = "spl-tlv-account-resolution"
-version = "0.11.0"
+version = "0.11.1"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "82f0396f16089ebebdbe3684af88e13dc613fae2ece6c6df0aa697c121e7ba9b"
+checksum = "6927f613c9d7ce20835d3cefb602137cab2518e383a047c0eaa58054a60644c8"
 dependencies = [
  "bytemuck",
  "num-derive",
