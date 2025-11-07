@@ -17,7 +17,7 @@ forbid-additional-mints = []
 [dependencies]
 arrayref = "0.3.9"
 solana-account-info = "3.0.0"
-solana-cpi = "3.0.0"
+solana-cpi = "3.1.0"
 solana-msg = "3.0.0"
 solana-program-entrypoint = "3.0.0"
 solana-program-error = "3.0.0"
