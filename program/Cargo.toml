@@ -21,7 +21,7 @@ solana-cpi = "3.0.0"
 solana-msg = "3.0.0"
 solana-program-entrypoint = "3.0.0"
 solana-program-error = "3.0.0"
-solana-pubkey = "3.0.0"
+solana-pubkey = "4.0.0"
 solana-system-interface = { version = "2", features = ["bincode"] }
 spl-tlv-account-resolution = "0.11.0"
 spl-token-2022-interface = "2.0.0"
