@@ -12,18 +12,18 @@ edition = { workspace = true }
 [dependencies]
 clap = { version = "3", features = ["cargo"] }
 futures-util = "0.3.31"
-solana-clap-v3-utils = "3.0.0"
-solana-cli-config = "3.0.0"
-solana-client = "3.0.0"
+solana-clap-v3-utils = { version = "3.1.0", features = ["agave-unstable-api"] }
+solana-cli-config = "3.1.0"
+solana-client = { version = "3.1.0", features = ["agave-unstable-api"] }
 solana-commitment-config = "3.0.0"
 solana-instruction = "3.0.0"
 solana-logger = "3.0.0"
-solana-pubkey = "3.0.0"
-solana-remote-wallet = "3.0.0"
+solana-pubkey = "4.0.0"
+solana-remote-wallet = "3.1.0"
 solana-sdk-ids = "3.0.0"
 solana-signature = "3.0.0"
 solana-signer = "3.0.0"
-solana-system-interface = "2"
+solana-system-interface = "3"
 solana-transaction = "3.0.0"
 spl-tlv-account-resolution = { version = "0.11.0", features = ["serde-traits"] }
 spl-transfer-hook-interface = { version = "2.0.0", path = "../../interface" }
@@ -38,7 +38,7 @@ serde_yaml = "0.9.34"
 solana-account = "3.0.0"
 solana-keypair = "3.0.0"
 solana-program-option = "3.0.0"
-solana-test-validator = "3.0.0"
+solana-test-validator = { version = "3.1.0", features = ["agave-unstable-api"] }
 spl-token-2022-interface = "2.0.0"
 spl-token-client = "0.18.0"
 spl-transfer-hook-example = { version = "0.6.0", path = "../../program" }
