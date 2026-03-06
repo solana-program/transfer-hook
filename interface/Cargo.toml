@@ -19,9 +19,9 @@ solana-cpi = "3.0.0"
 solana-instruction = { version = "3.0.0", features = ["std"] }
 solana-msg = "3.0.0"
 solana-program-error = "3.0.0"
-solana-pubkey = { version = "3.0.0", features = ["curve25519"] }
+solana-pubkey = { version = "4.0.0", features = ["curve25519"] }
 solana-sdk-ids = "3.0.0"
-solana-system-interface = "2.0.0"
+solana-system-interface = "3.0.0"
 spl-discriminator = "0.5.1"
 spl-program-error = "0.8.0"
 spl-tlv-account-resolution = "0.11.0"
