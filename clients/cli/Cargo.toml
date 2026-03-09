@@ -15,7 +15,7 @@ futures-util = "0.3.31"
 solana-clap-v3-utils = { version = "3.1.0", features = ["agave-unstable-api"] }
 solana-cli-config = "3.1.0"
 solana-client = { version = "3.1.0", features = ["agave-unstable-api"] }
-solana-commitment-config = "3.0.0"
+solana-commitment-config = "3.1.1"
 solana-instruction = "3.0.0"
 solana-logger = "3.0.0"
 solana-pubkey = "4.0.0"
