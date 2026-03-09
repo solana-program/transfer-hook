@@ -37,7 +37,7 @@ serde_yaml = "0.9.34"
 [dev-dependencies]
 solana-account = "3.0.0"
 solana-keypair = "3.0.0"
-solana-program-option = "3.0.0"
+solana-program-option = "3.0.1"
 solana-test-validator = { version = "3.1.0", features = ["agave-unstable-api"] }
 spl-token-2022-interface = "2.0.0"
 spl-token-client = "0.18.0"
