@@ -4858,7 +4858,7 @@ dependencies = [
  "quinn-udp",
  "rustc-hash 2.1.1",
  "rustls 0.23.36",
- "socket2 0.5.10",
+ "socket2 0.6.3",
  "thiserror 2.0.18",
  "tokio",
  "tracing",
@@ -8097,9 +8097,9 @@ dependencies = [
 
 [[package]]
 name = "solana-pubkey"
-version = "4.1.0"
+version = "4.2.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "1b06bd918d60111ee1f97de817113e2040ca0cedb740099ee8d646233f6b906c"
+checksum = "7db719574990de7e8b0f55a8593ac92a5ccb42c8ce67b3e4bf05b139d5d9ee71"
 dependencies = [
  "solana-address 2.2.0",
 ]
@@ -10331,7 +10331,7 @@ dependencies = [
  "solana-keypair",
  "solana-logger",
  "solana-program-option",
- "solana-pubkey 4.1.0",
+ "solana-pubkey 4.2.0",
  "solana-remote-wallet",
  "solana-sdk-ids",
  "solana-signature",
@@ -10360,7 +10360,7 @@ dependencies = [
  "solana-program-entrypoint",
  "solana-program-error",
  "solana-program-test",
- "solana-pubkey 4.1.0",
+ "solana-pubkey 4.2.0",
  "solana-sdk",
  "solana-system-interface 3.0.0",
  "spl-tlv-account-resolution",
@@ -10408,7 +10408,7 @@ dependencies = [
  "solana-instruction",
  "solana-msg",
  "solana-program-error",
- "solana-pubkey 4.1.0",
+ "solana-pubkey 4.2.0",
  "solana-sdk-ids",
  "solana-sha256-hasher",
  "solana-system-interface 3.0.0",
