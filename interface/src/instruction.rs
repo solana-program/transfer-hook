@@ -28,7 +28,14 @@ pub enum TransferHookInstruction {
     ///   5. ..`5+M` `[]` `M` optional additional accounts, written in
     ///      validation account data
     Execute {
-        /// Amount of tokens to transfer
+        /// Amount of tokens to transfer.
+        ///
+        /// When Token-2022 invokes a hook from a confidential transfer, the
+        /// amount is not known to the token program and `u64::MAX` is passed
+        /// as a convention. A hook that enforces amount-based policy must
+        /// handle this sentinel explicitly: compared directly it makes a
+        /// per-transfer cap reject every confidential transfer, and added to
+        /// a running total it wraps.
         amount: u64,
     },
 
