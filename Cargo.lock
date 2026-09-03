@@ -10047,6 +10047,21 @@ dependencies = [
 ]
 
 [[package]]
+name = "spl-list-view"
+version = "0.1.1"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "63e598e5d5f99fcc4ff25c4677465743a9b2d7e42fcc9492b982f04fbefab792"
+dependencies = [
+ "bytemuck",
+ "num-derive 0.4.2",
+ "num-traits",
+ "num_enum",
+ "solana-program-error",
+ "solana-zero-copy",
+ "thiserror 2.0.20",
+]
+
+[[package]]
 name = "spl-memo-interface"
 version = "2.0.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -10058,9 +10073,9 @@ dependencies = [
 
 [[package]]
 name = "spl-pod"
-version = "0.7.3"
+version = "0.7.4"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "2f9c6e142cdf1e7e77f480053ec9f0ce989890768ddf91f619b50f39d1b456f5"
+checksum = "4efaa79ec81a614ae4263c92481ba1444d01e5e1efcdaf92b7f48a5b1b3e282d"
 dependencies = [
  "borsh",
  "bytemuck",
@@ -10126,9 +10141,9 @@ dependencies = [
 
 [[package]]
 name = "spl-tlv-account-resolution"
-version = "0.11.0"
+version = "0.11.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "82f0396f16089ebebdbe3684af88e13dc613fae2ece6c6df0aa697c121e7ba9b"
+checksum = "4378fa824c41a21856eb5347fbff48bc613456179de02ba51f667bce9acb18f6"
 dependencies = [
  "bytemuck",
  "num-derive 0.4.2",
@@ -10140,8 +10155,8 @@ dependencies = [
  "solana-program-error",
  "solana-pubkey 3.0.0",
  "spl-discriminator",
+ "spl-list-view",
  "spl-pod",
- "spl-program-error",
  "spl-type-length-value",
  "thiserror 2.0.20",
 ]
@@ -10458,7 +10473,7 @@ dependencies = [
  "solana-sha256-hasher",
  "solana-system-interface 3.0.0",
  "spl-discriminator",
- "spl-pod",
+ "spl-list-view",
  "spl-program-error",
  "spl-tlv-account-resolution",
  "spl-type-length-value",
