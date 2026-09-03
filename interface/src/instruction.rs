@@ -33,9 +33,7 @@ pub enum TransferHookInstruction {
         /// When Token-2022 invokes a hook from a confidential transfer, the
         /// amount is not known to the token program and `u64::MAX` is passed
         /// as a convention. A hook that enforces amount-based policy must
-        /// handle this sentinel explicitly: compared directly it makes a
-        /// per-transfer cap reject every confidential transfer, and added to
-        /// a running total it wraps.
+        /// handle this sentinel explicitly.
         amount: u64,
     },
 
