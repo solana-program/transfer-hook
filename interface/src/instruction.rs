@@ -5,7 +5,7 @@ use {
     solana_program_error::ProgramError,
     solana_pubkey::Pubkey,
     spl_discriminator::{ArrayDiscriminator, SplDiscriminate},
-    spl_pod::{bytemuck::pod_slice_to_bytes, list::ListView},
+    spl_list_view::ListView,
     spl_tlv_account_resolution::account::ExtraAccountMeta,
     std::convert::TryInto,
 };
@@ -134,7 +134,7 @@ impl TransferHookInstruction {
                     InitializeExtraAccountMetaListInstruction::SPL_DISCRIMINATOR_SLICE,
                 );
                 buf.extend_from_slice(&(extra_account_metas.len() as u32).to_le_bytes());
-                buf.extend_from_slice(pod_slice_to_bytes(extra_account_metas));
+                buf.extend_from_slice(bytemuck::cast_slice(extra_account_metas));
             }
             Self::UpdateExtraAccountMetaList {
                 extra_account_metas,
@@ -143,7 +143,7 @@ impl TransferHookInstruction {
                     UpdateExtraAccountMetaListInstruction::SPL_DISCRIMINATOR_SLICE,
                 );
                 buf.extend_from_slice(&(extra_account_metas.len() as u32).to_le_bytes());
-                buf.extend_from_slice(pod_slice_to_bytes(extra_account_metas));
+                buf.extend_from_slice(bytemuck::cast_slice(extra_account_metas));
             }
         };
         buf
@@ -257,9 +257,7 @@ pub fn update_extra_account_meta_list(
 
 #[cfg(test)]
 mod test {
-    use {
-        super::*, crate::NAMESPACE, solana_sha256_hasher::hashv, spl_pod::bytemuck::pod_from_bytes,
-    };
+    use {super::*, crate::NAMESPACE, solana_sha256_hasher::hashv};
 
     #[test]
     fn system_program_id() {
@@ -296,7 +294,7 @@ mod test {
             0, // is_writable
         ];
         let extra_account_metas =
-            vec![*pod_from_bytes::<ExtraAccountMeta>(extra_meta_bytes).unwrap()];
+            vec![*bytemuck::try_from_bytes::<ExtraAccountMeta>(extra_meta_bytes).unwrap()];
         let check = TransferHookInstruction::InitializeExtraAccountMetaList {
             extra_account_metas,
         };
