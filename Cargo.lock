@@ -6504,6 +6504,19 @@ dependencies = [
 ]
 
 [[package]]
+name = "solana-cli-config"
+version = "4.3.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "bc5077bcae73dc437d4d37be8c73a9fdf00dbf07597e00d13880867f8527615a"
+dependencies = [
+ "dirs-next",
+ "serde",
+ "serde_yaml",
+ "solana-commitment-config",
+ "url 2.5.8",
+]
+
+[[package]]
 name = "solana-cli-output"
 version = "3.1.3"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -6525,7 +6538,7 @@ dependencies = [
  "solana-account-decoder",
  "solana-bincode",
  "solana-clap-utils",
- "solana-cli-config",
+ "solana-cli-config 3.1.3",
  "solana-clock",
  "solana-epoch-info",
  "solana-hash",
@@ -7112,7 +7125,7 @@ dependencies = [
  "log",
  "serde",
  "solana-clap-utils",
- "solana-cli-config",
+ "solana-cli-config 3.1.3",
  "solana-cli-output",
  "solana-hash",
  "solana-instruction",
@@ -10384,7 +10397,7 @@ dependencies = [
  "serde_yaml",
  "solana-account",
  "solana-clap-v3-utils",
- "solana-cli-config",
+ "solana-cli-config 4.3.0",
  "solana-client",
  "solana-commitment-config",
  "solana-instruction",
