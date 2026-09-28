@@ -6046,7 +6046,7 @@ checksum = "a9cf16495d9eb53e3d04e72366a33bb1c20c24e78c171d8b8f5978357b63ae95"
 dependencies = [
  "bincode",
  "serde_core",
- "solana-address 2.7.0",
+ "solana-address 2.8.0",
  "solana-program-error",
  "solana-program-memory",
 ]
@@ -6116,14 +6116,14 @@ version = "1.1.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "a2ecac8e1b7f74c2baa9e774c42817e3e75b20787134b76cc4d45e8a604488f5"
 dependencies = [
- "solana-address 2.7.0",
+ "solana-address 2.8.0",
 ]
 
 [[package]]
 name = "solana-address"
-version = "2.7.0"
+version = "2.8.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "01332a01c0a3098404d55a724c8d9a92aed4a50fe40a7dd0c7a51e29274c14de"
+checksum = "ea4126c5e3b30cec8e2f8155842a8f031dda8df986437f1ebb0c781715b132d3"
 dependencies = [
  "borsh",
  "bytemuck",
@@ -8142,11 +8142,11 @@ dependencies = [
 
 [[package]]
 name = "solana-pubkey"
-version = "4.3.0"
+version = "4.4.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
-checksum = "10f71b7a414de2ced1071f015834e9be581592d013432adbd06d02e4af11eba9"
+checksum = "e2b8ba5d677d77a76d557b59ce7ecf9a8578743089cb25c73990752c5f005885"
 dependencies = [
- "solana-address 2.7.0",
+ "solana-address 2.8.0",
 ]
 
 [[package]]
@@ -9194,7 +9194,7 @@ dependencies = [
  "num-traits",
  "serde",
  "serde_derive",
- "solana-address 2.7.0",
+ "solana-address 2.8.0",
  "solana-instruction",
  "solana-msg",
  "solana-program-error",
@@ -10391,7 +10391,7 @@ dependencies = [
  "solana-keypair",
  "solana-logger",
  "solana-program-option",
- "solana-pubkey 4.3.0",
+ "solana-pubkey 4.4.0",
  "solana-remote-wallet",
  "solana-sdk-ids",
  "solana-signature",
@@ -10420,7 +10420,7 @@ dependencies = [
  "solana-program-entrypoint",
  "solana-program-error",
  "solana-program-test",
- "solana-pubkey 4.3.0",
+ "solana-pubkey 4.4.0",
  "solana-sdk",
  "solana-system-interface 3.0.0",
  "spl-tlv-account-resolution",
@@ -10468,7 +10468,7 @@ dependencies = [
  "solana-instruction",
  "solana-msg",
  "solana-program-error",
- "solana-pubkey 4.3.0",
+ "solana-pubkey 4.4.0",
  "solana-sdk-ids",
  "solana-sha256-hasher",
  "solana-system-interface 3.0.0",
