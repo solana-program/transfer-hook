@@ -23,7 +23,7 @@ solana-pubkey = "4.2.0"
 solana-remote-wallet = "4.2.2"
 solana-sdk-ids = "3.0.0"
 solana-signature = "3.0.0"
-solana-signer = "3.0.0"
+solana-signer = "4.0.0"
 solana-system-interface = "3.0.0"
 solana-transaction = "4.0.0"
 spl-tlv-account-resolution = { version = "0.11.3", features = ["serde-traits"] }
