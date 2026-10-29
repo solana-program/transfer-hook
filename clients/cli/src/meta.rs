@@ -67,23 +67,25 @@ impl From<&Role> for Access {
     }
 }
 
-impl From<&Config> for ExtraAccountMeta {
-    fn from(config: &Config) -> Self {
+impl TryFrom<&Config> for ExtraAccountMeta {
+    type Error = String;
+
+    fn try_from(config: &Config) -> Result<Self, Self::Error> {
         let Access {
             is_signer,
             is_writable,
         } = Access::from(&config.role);
         match &config.address_config {
             AddressConfig::Pubkey(pubkey_string) => ExtraAccountMeta::new_with_pubkey(
-                &Pubkey::from_str(pubkey_string).unwrap(),
+                &Pubkey::from_str(pubkey_string).map_err(|e| format!("{e}"))?,
                 is_signer,
                 is_writable,
-            )
-            .unwrap(),
+            ),
             AddressConfig::Seeds(seeds) => {
-                ExtraAccountMeta::new_with_seeds(seeds, is_signer, is_writable).unwrap()
+                ExtraAccountMeta::new_with_seeds(seeds, is_signer, is_writable)
             }
         }
+        .map_err(|e| format!("{e}"))
     }
 }
 
@@ -110,11 +112,11 @@ fn parse_config_file_arg(path_str: &str) -> Result<Vec<ExtraAccountMeta>, String
     let file =
         std::fs::read_to_string(path).map_err(|err| format!("Unable to read file: {err}"))?;
     let parsed_config_file = parse_fn(&file)?;
-    Ok(parsed_config_file
+    parsed_config_file
         .extra_metas
         .iter()
-        .map(ExtraAccountMeta::from)
-        .collect())
+        .map(ExtraAccountMeta::try_from)
+        .collect()
 }
 
 fn parse_pubkey_role_arg(pubkey_string: &str, role: &str) -> Result<Vec<ExtraAccountMeta>, String> {
@@ -196,7 +198,7 @@ mod tests {
         let parsed_extra_metas: Vec<ExtraAccountMeta> = parsed_config_file
             .extra_metas
             .iter()
-            .map(|config| config.into())
+            .map(|config| config.try_into().unwrap())
             .collect::<Vec<_>>();
         let expected = vec![
             ExtraAccountMeta::new_with_pubkey(
@@ -273,7 +275,7 @@ mod tests {
         let parsed_extra_metas: Vec<ExtraAccountMeta> = parsed_config_file
             .extra_metas
             .iter()
-            .map(|config| config.into())
+            .map(|config| config.try_into().unwrap())
             .collect::<Vec<_>>();
         let expected = vec![
             ExtraAccountMeta::new_with_pubkey(
@@ -318,5 +320,36 @@ mod tests {
             .unwrap(),
         ];
         assert_eq!(parsed_extra_metas, expected);
+    }
+
+    #[test]
+    fn test_parse_invalid_config() {
+        let config = r#"{
+            "extraMetas": [
+                {
+                    "pubkey": "not-a-pubkey",
+                    "role": "readonly"
+                }
+            ]
+        }"#;
+        let parsed_config_file = serde_json::from_str::<ConfigFile>(config).unwrap();
+        assert!(ExtraAccountMeta::try_from(&parsed_config_file.extra_metas[0]).is_err());
+
+        let config = r#"{
+            "extraMetas": [
+                {
+                    "seeds": [
+                        {
+                            "literal": {
+                                "bytes": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32]
+                            }
+                        }
+                    ],
+                    "role": "readonly"
+                }
+            ]
+        }"#;
+        let parsed_config_file = serde_json::from_str::<ConfigFile>(config).unwrap();
+        assert!(ExtraAccountMeta::try_from(&parsed_config_file.extra_metas[0]).is_err());
     }
 }
