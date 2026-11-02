@@ -6090,6 +6090,18 @@ dependencies = [
 ]
 
 [[package]]
+name = "solana-account"
+version = "5.4.0"
+source = "registry+https://github.com/rust-lang/crates.io-index"
+checksum = "a19a89e4abe5053773609fb3653139dd485da0424016365206ea92e549580bbf"
+dependencies = [
+ "solana-account-info",
+ "solana-clock 4.0.0",
+ "solana-instruction-error 3.1.0",
+ "solana-pubkey 4.4.0",
+]
+
+[[package]]
 name = "solana-account-decoder"
 version = "4.3.2"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -10779,7 +10791,7 @@ dependencies = [
  "serde",
  "serde_json",
  "serde_yaml",
- "solana-account 4.7.0",
+ "solana-account 5.4.0",
  "solana-clap-v3-utils",
  "solana-cli-config",
  "solana-client",
