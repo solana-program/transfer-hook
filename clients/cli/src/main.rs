@@ -292,13 +292,13 @@ Additional accounts requiring seed configurations can be defined in a configurat
 ```yaml
 extraMetas:
   - pubkey: "39UhV..."
-      role: "readonlySigner"
+    role: "readonlySigner"
   - seeds:
       - literal:
           bytes: [1, 2, 3, 4, 5, 6]
       - accountKey:
           index: 0
-      role: "writable"
+    role: "writable"
 ```
 "#)
                 )
@@ -376,13 +376,13 @@ Additional accounts requiring seed configurations can be defined in a configurat
 ```yaml
 extraMetas:
   - pubkey: "39UhV..."
-      role: "readonlySigner"
+    role: "readonlySigner"
   - seeds:
       - literal:
           bytes: [1, 2, 3, 4, 5, 6]
       - accountKey:
           index: 0
-      role: "writable"
+    role: "writable"
 ```
 "#)
                 )
