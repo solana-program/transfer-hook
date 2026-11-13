@@ -8,7 +8,6 @@ use {
         instruction::{execute, ExecuteInstruction},
     },
     solana_instruction::{AccountMeta, Instruction},
-    solana_program_error::ProgramError,
     solana_pubkey::Pubkey,
     spl_tlv_account_resolution::state::ExtraAccountMetaList,
     std::future::Future,
@@ -26,6 +25,9 @@ use {
 ///
 /// The `program_id` should be the program ID of the program that the
 /// created `ExecuteInstruction` is for.
+///
+/// The validation state account is optional. If it does not exist, only the
+/// program ID is added to the instruction.
 ///
 /// To be client-agnostic and to avoid pulling in the full solana-sdk, this
 /// simply takes a function that will return its data as `Future<Vec<u8>>` for
@@ -60,9 +62,7 @@ where
     Fut: Future<Output = AccountDataResult>,
 {
     let validate_state_pubkey = get_extra_account_metas_address(mint_pubkey, program_id);
-    let validate_state_data = fetch_account_data_fn(validate_state_pubkey)
-        .await?
-        .ok_or(ProgramError::InvalidAccountData)?;
+    let validate_state_data = fetch_account_data_fn(validate_state_pubkey).await?;
 
     // Check to make sure the provided keys are in the instruction
     if [
@@ -76,6 +76,13 @@ where
     {
         Err(TransferHookError::IncorrectAccount)?;
     }
+
+    let Some(validate_state_data) = validate_state_data else {
+        instruction
+            .accounts
+            .push(AccountMeta::new_readonly(*program_id, false));
+        return Ok(());
+    };
 
     let mut execute_instruction = execute(
         program_id,
@@ -255,6 +262,38 @@ mod tests {
             AccountMeta::new_readonly(validate_state_pubkey, false),
         ];
 
+        assert_eq!(instruction.accounts, check_metas);
+    }
+
+    #[tokio::test]
+    async fn test_add_extra_account_metas_for_execute_without_validation_state() {
+        let source = Pubkey::new_unique();
+        let mint = Pubkey::new_unique();
+        let destination = Pubkey::new_unique();
+        let authority = Pubkey::new_unique();
+
+        let accounts = vec![
+            AccountMeta::new(source, false),
+            AccountMeta::new_readonly(mint, false),
+            AccountMeta::new(destination, false),
+            AccountMeta::new_readonly(authority, true),
+        ];
+        let mut instruction = Instruction::new_with_bytes(PROGRAM_ID, &[], accounts.clone());
+        add_extra_account_metas_for_execute(
+            &mut instruction,
+            &PROGRAM_ID,
+            &source,
+            &mint,
+            &destination,
+            &authority,
+            100,
+            |_| async { Ok(None) },
+        )
+        .await
+        .unwrap();
+
+        let mut check_metas = accounts;
+        check_metas.push(AccountMeta::new_readonly(PROGRAM_ID, false));
         assert_eq!(instruction.accounts, check_metas);
     }
 }
